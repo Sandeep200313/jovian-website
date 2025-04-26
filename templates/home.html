@@ -1,35 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-     </head> 
-    <style>
-        #banner{
-            height:360px:
-            width:100%;
-        }
-    </style>
-    <div class="container">
-        <h1 class="text-center mt-2 mb-2">{{company_name}} Careers</h1>
-    <title>Jovian website</title>
-        <img  class="img-fluid" id="banner" src="https://6ec6f7d1-8218-4990-8252-d9cba53dfb36-00-37djah0gzui8a.kirk.replit.dev/static/banner.jpg" alt="jovian image">
-        <h2 class="text-center mt-2 mb-2">About Jovian</h2>
-        <p class="lead">Jovian is an online platform primarily known for its data science and machine learning courses and bootcamps. It also acts as a job board for these fields, connecting professionals with companies in need of data science and related talent. Jovian aims to be a leading online technical university, offering a variety of resources for aspiring data scientists and software engineers. </p>
-        <h2 class ="text-center mt-2 mb-2">Job Positions</h2>
-        <div>
-            {% for job in jobs %}
-                {% include 'jobitem.html' %}
-            {% endfor %}
-        </div>
-        <div class="text-center mt-4">
-            <button type="button" class="btn btn-primary">Contact Us</button>
-            <p>Copyright 2022,Jovian</p>
-    
-</div>
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Jovian Website</title>
+  <style>
+    #banner {
+      height: 360px;
+      width: 100%;
+      margin-bottom: 16px;
+      object-fit: cover;
+    }
+    .people-img {
+      height: 320px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+  </style>
+</head>
 <body>
+
+  {% include 'nav.html' %}
+
+  <img class="img-fluid" id="banner" src="https://6ec6f7d1-8218-4990-8252-d9cba53dfb36-00-37djah0gzui8a.kirk.replit.dev/static/banner.jpg" alt="Jovian image">
+
+  <div class="container">
+    <h1 class="text-center mt-2 mb-2">{{company_name}} Careers</h1>
+
+    <div class="row align-items-center mb-4">
+      <div class="col-md-6">
+        <p class="lead">
+          Jovian is an online platform primarily known for its data science and machine learning courses and bootcamps. It also acts as a job board for these fields, connecting professionals with companies in need of data science and related talent. Jovian aims to be a leading online technical university, offering a variety of resources for aspiring data scientists and software engineers.
+        </p>
+      </div>
+      <div class="col-md-6">
+        <img src="/static/people.jpg" class="people-img" alt="People working">
+      </div>
+    </div>
+
+    <h2 class="text-center mt-2 mb-4">Job Positions</h2>
+
+    <div>
+      {% for job in jobs %}
+        {% include 'jobitem.html' %}
+      {% endfor %}
+    </div>
+
+    <div class="text-center mt-4">
+      <button type="button" class="btn btn-primary">Contact Us</button>
+    </div>
+  </div>
+
+  {% include 'footer.html' %}
 
 </body>
 </html>
